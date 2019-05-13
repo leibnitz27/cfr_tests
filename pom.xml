@@ -33,10 +33,13 @@
         <url>https://www.benf.org/other/cfr</url>
     </scm>
 
-    <!-- build that which we can in java6, in java6! -->
+	<!-- yes.  This is a vile way of having many targets.  Maven's not supposed to do this sort of
+	     thing.  
+		 Improvents welcomed ;)
+	-->
 	<profiles>
 		<profile>
-			<id>j6</id>
+			<id>java_6</id>
 			<properties>
 				<langver>1.6</langver>
 				<path.javac>${JAVA_6_HOME}/bin/javac</path.javac>
@@ -49,7 +52,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>j8</id>
+			<id>java_8</id>
 			<properties>
 				<langver>8</langver>
 				<path.javac>${JAVA_8_HOME}/bin/javac</path.javac>
@@ -62,7 +65,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>j10</id>
+			<id>java_10</id>
 			<properties>
 				<langver>10</langver>
 				<path.javac>${JAVA_10_HOME}/bin/javac</path.javac>
@@ -75,7 +78,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>j12</id>
+			<id>java_12</id>
 			<properties>
 				<langver>12</langver>
 				<path.javac>${JAVA_12_HOME}/bin/javac</path.javac>
@@ -88,7 +91,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>j13</id>
+			<id>java_13</id>
 			<properties>
 				<langver>13</langver>
 				<path.javac>${JAVA_13_HOME}/bin/javac</path.javac>
@@ -96,7 +99,7 @@
 				<path.source_8>src_8</path.source_8>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
-				<path.target>output/java_12</path.target>
+				<path.target>output/java_13</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
 		</profile>
