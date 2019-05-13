@@ -1,0 +1,21 @@
+package org.benf.cfr.tests;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: lee
+ * Date: 05/05/2011
+ * Time: 06:28
+ * To change this template use File | Settings | File Templates.
+ */
+public class ExceptionTestFinally10b {
+
+    int test1(int x) {
+        try {
+            return x;
+        } finally {
+            return x+1;
+        }
+    }
+
+
+}

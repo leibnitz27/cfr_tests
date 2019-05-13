@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.benf</groupId>
+    <artifactId>cfr_tests</artifactId>
+    <version>0.1-SNAPSHOT</version>
+
+    <name>cfr_tests</name>
+    <description>CFR Java decompiler tests</description>
+    <url>https://www.benf.org/other/cfr</url>
+    <inceptionYear>2011</inceptionYear>
+    <!--<organization><name>Lee Benfield</name><url>https://www.benf.org/other/cfr</url></organization>-->
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://www.benf.org/other/cfr/license.html</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Lee Benfield</name>
+            <email>lee@benf.org</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/leibnitz27/cfr_tests.git</connection>
+        <developerConnection>scm:git:ssh://github.com:leibnitz27/cfr_tests.git</developerConnection>
+        <url>https://www.benf.org/other/cfr</url>
+    </scm>
+
+    <!-- build that which we can in java6, in java6! -->
+	<profiles>
+		<profile>
+			<id>j6</id>
+			<properties>
+				<langver>1.6</langver>
+				<path.javac>${JAVA_6_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src</path.source_8>
+				<path.source_10>src</path.source_10>
+				<path.source_12>src</path.source_12>
+				<path.target>output/java_6</path.target>
+				<javac.arguments></javac.arguments>
+			</properties>
+		</profile>
+		<profile>
+			<id>j8</id>
+			<properties>
+				<langver>8</langver>
+				<path.javac>${JAVA_8_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_10>src</path.source_10>
+				<path.source_12>src</path.source_12>
+				<path.target>output/java_8</path.target>
+				<javac.arguments></javac.arguments>
+			</properties>
+		</profile>
+		<profile>
+			<id>j10</id>
+			<properties>
+				<langver>10</langver>
+				<path.javac>${JAVA_10_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src</path.source_12>
+				<path.target>output/java_10</path.target>
+				<javac.arguments></javac.arguments>
+			</properties>
+		</profile>
+		<profile>
+			<id>j12</id>
+			<properties>
+				<langver>12</langver>
+				<path.javac>${JAVA_12_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.target>output/java_12</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+		</profile>
+		<profile>
+			<id>j13</id>
+			<properties>
+				<langver>13</langver>
+				<path.javac>${JAVA_13_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.target>output/java_12</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+		</profile>
+	</profiles>	
+
+
+	<build>
+		<outputDirectory>${path.target}</outputDirectory>
+		<plugins>
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>build-helper-maven-plugin</artifactId>
+			<version>3.0.0</version>
+			<executions>
+				<execution>
+					<phase>generate-sources</phase>
+					<goals>
+						<goal>add-source</goal>
+					</goals>
+					<configuration>
+						<sources>
+							<source>${path.source_6}</source>
+							<source>${path.source_8}</source>
+							<source>${path.source_10}</source>
+							<source>${path.source_12}</source>
+						</sources>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>			
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.3</version>
+			<configuration>
+	            <source>${langver}</source>
+                <target>${langver}</target>
+				<fork>true</fork>
+				<executable>${path.javac}</executable>
+			    <compilerArgs>
+					<arg>-Xlint:none</arg>
+					<arg>${javac.arguments}</arg>
+				</compilerArgs>
+			</configuration>
+		</plugin>
+		</plugins>
+	</build>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>
