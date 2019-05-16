@@ -2,7 +2,8 @@
 
 #
 # A fairly quick and dirty test runner.  It would be nice to integrate this into the pom,
-# however, the feedback aspect of this is helpful.
+# however, the feedback aspect of this is helpful, as is the ability to run a given jvm easily
+# against a given target.
 #
 
 import os
@@ -21,7 +22,8 @@ print ("Using CFR from " + cfr_target)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--target', default="java_13", help='Version of java target - java_6, java_8, etc. (contents of "output")')
-parser.add_argument('--tests', default="*", help='Substring of test names to run. ')
+parser.add_argument('--jvm', default="java", help='Path of java binary')
+parser.add_argument('--filter', default="*", help='Substring of test names to run. ')
 parser.add_argument('--force', default="*", help='"y" to force acceptance of test results.')
 args = parser.parse_args()
 
@@ -30,7 +32,7 @@ os.mkdir("temptestfiles")
 
 
 source = args.target
-filter = "*" if args.tests == "*" else "*" + args.tests + "*"
+filter = "*" if args.filter == "*" else "*" + args.filter + "*"
 clspath = os.path.join("output", source, "org", "benf", "cfr", "tests", filter + ".class")
 
 print ("Source : " + source)
@@ -41,7 +43,7 @@ print ("Filter : " + filter)
 # ideally, we'd have a full cross product of java version * compiler version, 
 # but that's a lot to run...... 
 #
-subprocess.call("java -classpath " + cfr_target + " org.benf.cfr.reader.Main " + clspath + " --showversion false --renameillegalidents true --outputdir temptestfiles", shell=True)
+subprocess.call('"' + args.jvm + '" -classpath ' + cfr_target + " org.benf.cfr.reader.Main " + clspath + " --showversion false --renameillegalidents true --outputdir temptestfiles", shell=True)
 
 expected_dir = os.path.join("expected", source)
 if not os.path.exists(expected_dir):
