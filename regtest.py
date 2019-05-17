@@ -21,7 +21,7 @@ if not cfr_target:
 print ("Using CFR from " + cfr_target)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--target', default="java_13", help='Version of java target - java_6, java_8, etc. (contents of "output")')
+parser.add_argument('--target', default="java_13", help='Version of java target - java_6, java_8, java_13, hardcoded')
 parser.add_argument('--jvm', default="java", help='Path of java binary')
 parser.add_argument('--filter', default="*", help='Substring of test names to run. ')
 parser.add_argument('--force', default="*", help='"y" to force acceptance of test results.')
@@ -31,11 +31,14 @@ shutil.rmtree("temptestfiles", ignore_errors=True)
 os.mkdir("temptestfiles")
 
 
-source = args.target
+target = args.target
 filter = "*" if args.filter == "*" else "*" + args.filter + "*"
-clspath = os.path.join("output", source, "org", "benf", "cfr", "tests", filter + ".class")
+if target == "hardcoded":
+	clspath = os.path.join("hardcoded", filter + ".class")
+else:
+	clspath = os.path.join("output", target, "org", "benf", "cfr", "tests", filter + ".class")
 
-print ("Source : " + source)
+print ("Target : " + target)
 print ("Filter : " + filter)
 
 #
@@ -45,7 +48,7 @@ print ("Filter : " + filter)
 #
 subprocess.call('"' + args.jvm + '" -classpath ' + cfr_target + " org.benf.cfr.reader.Main " + clspath + " --showversion false --renameillegalidents true --outputdir temptestfiles", shell=True)
 
-expected_dir = os.path.join("expected", source)
+expected_dir = os.path.join("expected", target)
 if not os.path.exists(expected_dir):
   os.makedirs(expected_dir)
 
