@@ -31,6 +31,8 @@ as such, it's easier to keep all the multi-javac versioning carefully to one sid
     1. `python regtest.py --target java_6` (without the force argument, of course!)
     2. Wonder at the damage that you hath wrought.
     3. You should get a bunch of complaints.  You really don't want to accept them.
-  
+1. Fix CFR
+1. Generate baselines for all the other java versions you care about (please, at least 6,8 and 13), and 'hardcoded'.
+
 **Job done!**
   
