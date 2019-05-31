@@ -1,7 +1,6 @@
 # Contributing to CFR
 
 *Thanks for visiting!*
-First, a few apologies to get out of the way.  
 
 # The badly phrased legal bit
 
