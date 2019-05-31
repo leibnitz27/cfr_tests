@@ -13,6 +13,9 @@ import subprocess
 import itertools
 import argparse
 
+if (sys.version_info < (3, 0)):
+  raise Exception("Python 3 please!")
+
 cfr_target = os.environ.get('CFR_TARGET')
 
 if not cfr_target:
