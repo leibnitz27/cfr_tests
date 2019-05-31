@@ -1,0 +1,17 @@
+<settings>
+  <profiles>
+    <profile>
+      <id>compiler</id>
+        <properties>
+          <JAVA_6_HOME>$$YOUR_PATH_TO_JDK6$$</JAVA_6_HOME>
+          <JAVA_8_HOME>$$YOUR_PATH_TO_JDK8$$</JAVA_8_HOME>
+          <JAVA_10_HOME>$$YOUR_PATH_TO_JDK10$$</JAVA_10_HOME>
+          <JAVA_12_HOME>$$YOUR_PATH_TO_JDK12$$</JAVA_12_HOME>
+          <JAVA_13_HOME>$$YOUR_PATH_TO_JDK13$$</JAVA_13_HOME>
+        </properties>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>compiler</activeProfile>
+  </activeProfiles>
+</settings>
