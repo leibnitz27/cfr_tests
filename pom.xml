@@ -50,6 +50,20 @@
 				<path.target>output/java_6</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
+          <build>
+            <plugins>
+              <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                <executable>${path.javac}</executable> 
+			    <compilerArgs>
+					<arg>-Xlint:none</arg>
+					<arg>${javac.arguments}</arg>
+				</compilerArgs>
+                </configuration>
+              </plugin>
+            </plugins>
+          </build>
 		</profile>
 		<profile>
 			<id>java_8</id>
@@ -63,6 +77,20 @@
 				<path.target>output/java_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
+          <build>
+            <plugins>
+              <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                <executable>${path.javac}</executable> 
+			    <compilerArgs>
+					<arg>-Xlint:none</arg>
+					<arg>${javac.arguments}</arg>
+				</compilerArgs>
+                </configuration>
+              </plugin>
+            </plugins>
+          </build>
 		</profile>
 		<profile>
 			<id>java_10</id>
@@ -76,6 +104,20 @@
 				<path.target>output/java_10</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
+          <build>
+            <plugins>
+              <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                <executable>${path.javac}</executable> 
+			    <compilerArgs>
+					<arg>-Xlint:none</arg>
+					<arg>${javac.arguments}</arg>
+				</compilerArgs>
+                </configuration>
+              </plugin>
+            </plugins>
+          </build>
 		</profile>
 		<profile>
 			<id>java_12</id>
@@ -89,6 +131,20 @@
 				<path.target>output/java_12</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
+          <build>
+            <plugins>
+              <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                <executable>${path.javac}</executable> 
+			    <compilerArgs>
+					<arg>-Xlint:none</arg>
+					<arg>${javac.arguments}</arg>
+				</compilerArgs>
+                </configuration>
+              </plugin>
+            </plugins>
+          </build>
 		</profile>
 		<profile>
 			<id>java_13</id>
@@ -102,7 +158,51 @@
 				<path.target>output/java_13</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
+          <build>
+            <plugins>
+              <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                <executable>${path.javac}</executable> 
+			    <compilerArgs>
+					<arg>-Xlint:none</arg>
+					<arg>${javac.arguments}</arg>
+				</compilerArgs>
+                </configuration>
+              </plugin>
+            </plugins>
+          </build>
 		</profile>
+        <profile>
+            <id>ecj_8</id>
+			<properties>
+				<langver>1.8</langver>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_10>src</path.source_10>
+				<path.source_12>src</path.source_12>
+				<path.target>output/ecj_8</path.target>
+				<javac.arguments></javac.arguments>
+			</properties>
+          <build>
+            <plugins>
+              <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                  <compilerId>eclipse</compilerId>
+                </configuration>
+                <dependencies>
+                  <dependency>
+                    <groupId>org.codehaus.plexus</groupId>
+                    <artifactId>plexus-compiler-eclipse</artifactId>
+                    <version>2.8.1</version>
+                  </dependency>
+                </dependencies>
+              </plugin>
+            </plugins>
+          </build>
+        </profile>
 	</profiles>	
 
 
@@ -135,14 +235,9 @@
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>3.3</version>
 			<configuration>
-	            <source>${langver}</source>
+                <source>${langver}</source>
                 <target>${langver}</target>
 				<fork>true</fork>
-				<executable>${path.javac}</executable>
-			    <compilerArgs>
-					<arg>-Xlint:none</arg>
-					<arg>${javac.arguments}</arg>
-				</compilerArgs>
 			</configuration>
 		</plugin>
 		</plugins>

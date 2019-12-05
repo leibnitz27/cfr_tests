@@ -9,3 +9,4 @@ call mvn compile -P java_8
 call mvn compile -P java_10
 call mvn compile -P java_12
 call mvn compile -P java_13
+call mvn compile -P ecj_8
