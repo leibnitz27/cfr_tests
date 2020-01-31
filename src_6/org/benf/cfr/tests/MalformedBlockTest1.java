@@ -12,9 +12,10 @@ class MalformedBlockTest1 {
             short s = (short) -32767;
             useShort(s);
         }
-
-        char c = 1;
-        useChar(c);
+        {
+            char s = 1;
+            useChar(s);
+        }
     }
 
     void testByte() {
@@ -22,9 +23,10 @@ class MalformedBlockTest1 {
             int i = 32767;
             useInt(i);
         }
-
-        byte b = 1;
-        useByte(b);
+        {
+            byte i = 1;
+            useByte(i);
+        }
     }
 
     void testBoolean() {
@@ -32,8 +34,9 @@ class MalformedBlockTest1 {
             int i = 32767;
             useInt(i);
         }
-
-        boolean b = true;
-        useBoolean(b);
+        {
+            boolean i = true;
+            useBoolean(i);
+        }
     }
 }
