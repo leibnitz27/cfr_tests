@@ -26,7 +26,7 @@ class AnnotationTestM {
         System.out.println(AnnotationTestM.class.getField("field").getAnnotatedType().getAnnotations()[0]);
         System.out.println(AnnotationTestM.class.getField("field").getAnnotations()[0]);
 
-        Class<?> cl = new AnnotationTestM() { }.getClass();
+        Class<?> cl = new @MyParam AnnotationTestM() { }.getClass();
         System.out.println(cl.getAnnotatedSuperclass().getAnnotations()[0]);
     }
 
