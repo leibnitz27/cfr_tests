@@ -10,13 +10,13 @@ public class SwitchTest30 {
             case "Jennifer" -> throw new IllegalStateException();
             case "Alison","Phillipa" -> {
                 System.out.println("JIM");
-                break "JIM";
+                yield "JIM";
             }
             case "Sue","Deborah","Annabel" -> "FRED";
             default -> {
-                if (x.length() > 4) break "ALICE";
+                if (x.length() > 4) yield "ALICE";
                 System.out.println("BOB!");
-                break "BOB";
+                yield "BOB";
             }
         });
     }

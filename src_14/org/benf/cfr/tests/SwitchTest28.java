@@ -3,20 +3,19 @@
  */
 package org.benf.cfr.tests;
 
-public class SwitchTest29 {
+public class SwitchTest28 {
 
     public static void foo(int x) {
         System.out.println(switch (x) {
             case 1 -> throw new IllegalStateException();
             case 2,3 -> {
                 System.out.println("JIM");
-                break "JIM";
+                yield "JIM";
             }
             case 4,5,54 -> "FRED";
             default -> {
-                if (x < 100) break "ALICE";
-                System.out.println("BOB!");
-                break "BOB";
+                if (x < 100) yield "ALICE";
+                yield "BOB";
             }
         });
     }

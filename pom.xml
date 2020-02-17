@@ -47,6 +47,7 @@
 				<path.source_8>src</path.source_8>
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
+				<path.source_14>src</path.source_14>
 				<path.target>output/java_6</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -74,6 +75,7 @@
 				<path.source_8>src_8</path.source_8>
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
+				<path.source_14>src</path.source_14>
 				<path.target>output/java_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -101,6 +103,7 @@
 				<path.source_8>src_8</path.source_8>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src</path.source_12>
+				<path.source_14>src</path.source_14>
 				<path.target>output/java_10</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -128,6 +131,7 @@
 				<path.source_8>src_8</path.source_8>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
+				<path.source_14>src</path.source_14>
 				<path.target>output/java_12</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -155,6 +159,7 @@
 				<path.source_8>src_8</path.source_8>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
+				<path.source_14>src</path.source_14>
 				<path.target>output/java_13</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -173,6 +178,34 @@
             </plugins>
           </build>
 		</profile>
+		<profile>
+			<id>java_14</id>
+			<properties>
+				<langver>14</langver>
+				<path.javac>${JAVA_14_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.source_14>src_14</path.source_14>
+				<path.target>output/java_14</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<executable>${path.javac}</executable>
+							<compilerArgs>
+								<arg>-Xlint:none</arg>
+								<arg>${javac.arguments}</arg>
+							</compilerArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
         <profile>
             <id>ecj_8</id>
 			<properties>
@@ -181,6 +214,7 @@
 				<path.source_8>src_8</path.source_8>
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
+				<path.source_14>src</path.source_14>
 				<path.target>output/ecj_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -225,6 +259,7 @@
 							<source>${path.source_8}</source>
 							<source>${path.source_10}</source>
 							<source>${path.source_12}</source>
+							<source>${path.source_14}</source>
 						</sources>
 					</configuration>
 				</execution>

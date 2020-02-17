@@ -28,6 +28,7 @@ parser.add_argument('--target', default="java_13", help='Version of java target 
 parser.add_argument('--jvm', default="java", help='Path of java binary')
 parser.add_argument('--filter', default="*", help='Substring of test names to run. ')
 parser.add_argument('--force', default="*", help='"y" to force acceptance of test results.')
+parser.add_argument('--rename', default="true", help='"false" to stop renaming illegal idents.')
 args = parser.parse_args()
 
 shutil.rmtree("temptestfiles", ignore_errors=True)
@@ -49,7 +50,7 @@ print ("Filter : " + filter)
 # ideally, we'd have a full cross product of java version * compiler version, 
 # but that's a lot to run...... 
 #
-subprocess.call('"' + args.jvm + '" -classpath ' + cfr_target + " org.benf.cfr.reader.Main " + clspath + " --showversion false --renameillegalidents true --outputdir temptestfiles", shell=True)
+subprocess.call('"' + args.jvm + '" -classpath ' + cfr_target + " org.benf.cfr.reader.Main " + clspath + " --showversion false --renameillegalidents " + args.rename + " --outputdir temptestfiles", shell=True)
 
 expected_dir = os.path.join("expected", target)
 if not os.path.exists(expected_dir):
