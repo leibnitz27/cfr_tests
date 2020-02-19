@@ -1,4 +1,4 @@
 package org.benf.cfr.tests;
 
-public class Nested {
+public class Nested<X, Y> {
 }

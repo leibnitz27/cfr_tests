@@ -1,15 +1,15 @@
 package org.benf.cfr.tests;
 
-public class InstanceOfPatternTest4b {
+public class InstanceOfPatternTest4c {
     public static void test(boolean bool, Object obj) {
 
-        if (bool && obj instanceof String s){   //
+        if (obj instanceof String s && bool){   //
             System.out.println(s.length());
         } else {
             System.out.println("Foo");
         }
 
-        if (!(!bool || !(obj instanceof String s2))){
+        if (!(!(obj instanceof String s2) || !bool)){
             System.out.println(s2.length());
         } else{
             System.out.println("Bar");
