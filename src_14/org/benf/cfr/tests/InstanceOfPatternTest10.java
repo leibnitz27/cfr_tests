@@ -1,7 +1,6 @@
 package org.benf.cfr.tests;
 
-import java.util.function.Supplier;
-
+// From a discussion with Tom Johnson
 public class InstanceOfPatternTest10 {
     static String s = "WIBBLE";
 
