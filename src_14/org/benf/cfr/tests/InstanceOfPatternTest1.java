@@ -5,7 +5,7 @@ import java.util.Objects;
 public class InstanceOfPatternTest1 {
     public static void test(Object obj) {
 
-        // Pre JDK 14
+              // Pre JDK 14
         if (obj instanceof Person) {
             int age = ((Person) obj).getAge();
             // use age to perform business logic
