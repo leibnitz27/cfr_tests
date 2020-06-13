@@ -45,6 +45,7 @@
 				<path.javac>${JAVA_6_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src</path.source_8>
+				<path.source_9>src</path.source_9>
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
@@ -73,6 +74,7 @@
 				<path.javac>${JAVA_8_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
+				<path.source_9>src</path.source_9>
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
@@ -101,6 +103,7 @@
 				<path.javac>${OPEN_8_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
+				<path.source_9>src</path.source_9>
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
@@ -129,6 +132,7 @@
 				<path.javac>${JAVA_10_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
@@ -157,6 +161,7 @@
 				<path.javac>${JAVA_12_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src</path.source_14>
@@ -185,6 +190,7 @@
 				<path.javac>${JAVA_13_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src</path.source_14>
@@ -213,6 +219,7 @@
 				<path.javac>${JAVA_14_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
@@ -285,6 +292,7 @@
 						<sources>
 							<source>${path.source_6}</source>
 							<source>${path.source_8}</source>
+							<source>${path.source_9}</source>
 							<source>${path.source_10}</source>
 							<source>${path.source_12}</source>
 							<source>${path.source_14}</source>
