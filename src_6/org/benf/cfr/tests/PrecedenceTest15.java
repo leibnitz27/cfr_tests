@@ -1,6 +1,6 @@
 package org.benf.cfr.tests;
 
-class OperatorPrecedenceTest {
+class PrecedenceTest15 {
     int testAll(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, boolean b1, boolean b2, boolean b3, boolean b4, boolean b5, boolean b6, boolean b7) {
         return
             ~((((((Boolean) (((((((((b1 ? (i1 += i2 -= i3 *= i4 /= i5 %= i6 &= i7 ^= i8 |= i9 <<= i10 >>= i11 >>>= i12) == 0
