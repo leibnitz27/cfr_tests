@@ -4,3 +4,4 @@ temptestfiles
 output
 expected
 *.iml
+${path.target}
