@@ -49,6 +49,7 @@
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
+				<path.source_16>src</path.source_16>
 				<path.target>output/java_6</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -78,6 +79,7 @@
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
+				<path.source_16>src</path.source_16>
 				<path.target>output/java_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -107,6 +109,7 @@
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
+				<path.source_16>src</path.source_16>
 				<path.target>output/ojava_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -136,6 +139,7 @@
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
+				<path.source_16>src</path.source_16>
 				<path.target>output/java_10</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -165,6 +169,7 @@
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src</path.source_14>
+				<path.source_16>src</path.source_16>
 				<path.target>output/java_12</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -194,6 +199,7 @@
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src</path.source_14>
+				<path.source_16>src</path.source_16>
 				<path.target>output/java_13</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -223,6 +229,7 @@
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
+				<path.source_16>src</path.source_16>
 				<path.target>output/java_14</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -252,8 +259,9 @@
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
+				<path.source_16>src_16</path.source_16>
 				<path.target>output/java_16</path.target>
-				<javac.arguments></javac.arguments>
+				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
 			<build>
 				<plugins>
@@ -280,6 +288,7 @@
 				<path.source_10>src</path.source_10>
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
+				<path.source_16>src</path.source_16>
 				<path.target>output/ecj_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -326,6 +335,7 @@
 							<source>${path.source_10}</source>
 							<source>${path.source_12}</source>
 							<source>${path.source_14}</source>
+							<source>${path.source_16}</source>
 						</sources>
 					</configuration>
 				</execution>
