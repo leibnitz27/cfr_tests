@@ -7,6 +7,11 @@ package org.benf.cfr.tests;
  *
  * Fred
  * WIBBLE
+ *
+ * (behaviour is due to deliberate code reachability spec
+ * https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.21
+ * interacting badly with (IMHO, cough) poorly designed negative match spec
+ * for instanceof).
  */
 public class InstanceOfPatternTest10 {
     static String s = "WIBBLE";
