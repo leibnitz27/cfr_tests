@@ -278,6 +278,36 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>java_18</id>
+			<properties>
+				<langver>18</langver>
+				<path.javac>${JAVA_18_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.source_14>src_14</path.source_14>
+				<path.source_16>src_16</path.source_16>
+				<path.target>output/java_18</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<executable>${path.javac}</executable>
+							<compilerArgs>
+								<arg>-Xlint:none</arg>
+								<arg>${javac.arguments}</arg>
+							</compilerArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
         <profile>
             <id>ecj_8</id>
 			<properties>
