@@ -50,6 +50,7 @@
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
 				<path.source_16>src</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/java_6</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -80,6 +81,7 @@
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
 				<path.source_16>src</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/java_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -110,6 +112,7 @@
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
 				<path.source_16>src</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/ojava_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -140,6 +143,7 @@
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
 				<path.source_16>src</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/java_10</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -170,6 +174,7 @@
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src</path.source_14>
 				<path.source_16>src</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/java_12</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -200,6 +205,7 @@
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src</path.source_14>
 				<path.source_16>src</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/java_13</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -230,6 +236,7 @@
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
 				<path.source_16>src</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/java_14</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -260,6 +267,7 @@
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
 				<path.source_16>src_16</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/java_16</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
@@ -290,7 +298,39 @@
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
 				<path.source_16>src_16</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/java_18</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<executable>${path.javac}</executable>
+							<compilerArgs>
+								<arg>-Xlint:none</arg>
+								<arg>${javac.arguments}</arg>
+							</compilerArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>java_25</id>
+			<properties>
+				<langver>25</langver>
+				<path.javac>${JAVA_25_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.source_14>src_14</path.source_14>
+				<path.source_16>src_16</path.source_16>
+				<path.source_25>src_25</path.source_25>
+				<path.target>output/java_25</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
 			<build>
@@ -319,6 +359,7 @@
 				<path.source_12>src</path.source_12>
 				<path.source_14>src</path.source_14>
 				<path.source_16>src</path.source_16>
+				<path.source_25>src</path.source_25>
 				<path.target>output/ecj_8</path.target>
 				<javac.arguments></javac.arguments>
 			</properties>
@@ -366,6 +407,7 @@
 							<source>${path.source_12}</source>
 							<source>${path.source_14}</source>
 							<source>${path.source_16}</source>
+							<source>${path.source_25}</source>
 						</sources>
 					</configuration>
 				</execution>

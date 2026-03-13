@@ -6,3 +6,4 @@ mvn compile -P j10
 mvn compile -P j12
 mvn compile -P j13
 mvn compile -P j14
+mvn compile -P java_25
