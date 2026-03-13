@@ -33,10 +33,27 @@
         <url>https://www.benf.org/other/cfr</url>
     </scm>
 
-	<!-- yes.  This is a vile way of having many targets.  Maven's not supposed to do this sort of
-	     thing.  
-		 Improvents welcomed ;)
+	<!--
+	     Default all source paths to 'src' (which contains no version-specific code).
+	     Each profile overrides only the versions it includes.
+	     To add a new Java version:
+	       1. Add a default path.source_XX property here
+	       2. Add a <source> entry to build-helper-maven-plugin below
+	       3. Add a new profile that overrides path.source_XX to src_XX
 	-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<javac.arguments></javac.arguments>
+		<path.source_6>src</path.source_6>
+		<path.source_8>src</path.source_8>
+		<path.source_9>src</path.source_9>
+		<path.source_10>src</path.source_10>
+		<path.source_12>src</path.source_12>
+		<path.source_14>src</path.source_14>
+		<path.source_16>src</path.source_16>
+		<path.source_25>src</path.source_25>
+    </properties>
+
 	<profiles>
 		<profile>
 			<id>java_6</id>
@@ -44,30 +61,8 @@
 				<langver>1.6</langver>
 				<path.javac>${JAVA_6_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
-				<path.source_8>src</path.source_8>
-				<path.source_9>src</path.source_9>
-				<path.source_10>src</path.source_10>
-				<path.source_12>src</path.source_12>
-				<path.source_14>src</path.source_14>
-				<path.source_16>src</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/java_6</path.target>
-				<javac.arguments></javac.arguments>
 			</properties>
-          <build>
-            <plugins>
-              <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                <executable>${path.javac}</executable> 
-			    <compilerArgs>
-					<arg>-Xlint:none</arg>
-					<arg>${javac.arguments}</arg>
-				</compilerArgs>
-                </configuration>
-              </plugin>
-            </plugins>
-          </build>
 		</profile>
 		<profile>
 			<id>java_8</id>
@@ -76,29 +71,8 @@
 				<path.javac>${JAVA_8_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
-				<path.source_9>src</path.source_9>
-				<path.source_10>src</path.source_10>
-				<path.source_12>src</path.source_12>
-				<path.source_14>src</path.source_14>
-				<path.source_16>src</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/java_8</path.target>
-				<javac.arguments></javac.arguments>
 			</properties>
-          <build>
-            <plugins>
-              <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                <executable>${path.javac}</executable> 
-			    <compilerArgs>
-					<arg>-Xlint:none</arg>
-					<arg>${javac.arguments}</arg>
-				</compilerArgs>
-                </configuration>
-              </plugin>
-            </plugins>
-          </build>
 		</profile>
 		<profile>
 			<id>ojava_8</id>
@@ -107,29 +81,8 @@
 				<path.javac>${OPEN_8_HOME}/bin/javac</path.javac>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
-				<path.source_9>src</path.source_9>
-				<path.source_10>src</path.source_10>
-				<path.source_12>src</path.source_12>
-				<path.source_14>src</path.source_14>
-				<path.source_16>src</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/ojava_8</path.target>
-				<javac.arguments></javac.arguments>
 			</properties>
-          <build>
-            <plugins>
-              <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                <executable>${path.javac}</executable> 
-			    <compilerArgs>
-					<arg>-Xlint:none</arg>
-					<arg>${javac.arguments}</arg>
-				</compilerArgs>
-                </configuration>
-              </plugin>
-            </plugins>
-          </build>
 		</profile>
 		<profile>
 			<id>java_10</id>
@@ -140,27 +93,8 @@
 				<path.source_8>src_8</path.source_8>
 				<path.source_9>src_9</path.source_9>
 				<path.source_10>src_10</path.source_10>
-				<path.source_12>src</path.source_12>
-				<path.source_14>src</path.source_14>
-				<path.source_16>src</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/java_10</path.target>
-				<javac.arguments></javac.arguments>
 			</properties>
-          <build>
-            <plugins>
-              <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                <executable>${path.javac}</executable> 
-			    <compilerArgs>
-					<arg>-Xlint:none</arg>
-					<arg>${javac.arguments}</arg>
-				</compilerArgs>
-                </configuration>
-              </plugin>
-            </plugins>
-          </build>
 		</profile>
 		<profile>
 			<id>java_12</id>
@@ -172,26 +106,9 @@
 				<path.source_9>src_9</path.source_9>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
-				<path.source_14>src</path.source_14>
-				<path.source_16>src</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/java_12</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
-          <build>
-            <plugins>
-              <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                <executable>${path.javac}</executable> 
-			    <compilerArgs>
-					<arg>-Xlint:none</arg>
-					<arg>${javac.arguments}</arg>
-				</compilerArgs>
-                </configuration>
-              </plugin>
-            </plugins>
-          </build>
 		</profile>
 		<profile>
 			<id>java_13</id>
@@ -203,26 +120,9 @@
 				<path.source_9>src_9</path.source_9>
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
-				<path.source_14>src</path.source_14>
-				<path.source_16>src</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/java_13</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
-          <build>
-            <plugins>
-              <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                <executable>${path.javac}</executable> 
-			    <compilerArgs>
-					<arg>-Xlint:none</arg>
-					<arg>${javac.arguments}</arg>
-				</compilerArgs>
-                </configuration>
-              </plugin>
-            </plugins>
-          </build>
 		</profile>
 		<profile>
 			<id>java_14</id>
@@ -235,25 +135,9 @@
 				<path.source_10>src_10</path.source_10>
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
-				<path.source_16>src</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/java_14</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<configuration>
-							<executable>${path.javac}</executable>
-							<compilerArgs>
-								<arg>-Xlint:none</arg>
-								<arg>${javac.arguments}</arg>
-							</compilerArgs>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 		<profile>
 			<id>java_16</id>
@@ -267,24 +151,9 @@
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
 				<path.source_16>src_16</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/java_16</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<configuration>
-							<executable>${path.javac}</executable>
-							<compilerArgs>
-								<arg>-Xlint:none</arg>
-								<arg>${javac.arguments}</arg>
-							</compilerArgs>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 		<profile>
 			<id>java_18</id>
@@ -298,24 +167,9 @@
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
 				<path.source_16>src_16</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/java_18</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<configuration>
-							<executable>${path.javac}</executable>
-							<compilerArgs>
-								<arg>-Xlint:none</arg>
-								<arg>${javac.arguments}</arg>
-							</compilerArgs>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 		<profile>
 			<id>java_25</id>
@@ -333,20 +187,6 @@
 				<path.target>output/java_25</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<configuration>
-							<executable>${path.javac}</executable>
-							<compilerArgs>
-								<arg>-Xlint:none</arg>
-								<arg>${javac.arguments}</arg>
-							</compilerArgs>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
         <profile>
             <id>ecj_8</id>
@@ -354,14 +194,7 @@
 				<langver>1.8</langver>
 				<path.source_6>src_6</path.source_6>
 				<path.source_8>src_8</path.source_8>
-				<path.source_9>src</path.source_9>
-				<path.source_10>src</path.source_10>
-				<path.source_12>src</path.source_12>
-				<path.source_14>src</path.source_14>
-				<path.source_16>src</path.source_16>
-				<path.source_25>src</path.source_25>
 				<path.target>output/ecj_8</path.target>
-				<javac.arguments></javac.arguments>
 			</properties>
           <build>
             <plugins>
@@ -382,7 +215,7 @@
             </plugins>
           </build>
         </profile>
-	</profiles>	
+	</profiles>
 
 
 	<build>
@@ -412,7 +245,7 @@
 					</configuration>
 				</execution>
 			</executions>
-		</plugin>			
+		</plugin>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
@@ -421,12 +254,13 @@
                 <source>${langver}</source>
                 <target>${langver}</target>
 				<fork>true</fork>
+				<executable>${path.javac}</executable>
+				<compilerArgs>
+					<arg>-Xlint:none</arg>
+					<arg>${javac.arguments}</arg>
+				</compilerArgs>
 			</configuration>
 		</plugin>
 		</plugins>
 	</build>
-    
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 </project>
