@@ -14,11 +14,15 @@ public class PrimitivePatterns2 {
 
     }
 
+    static class Baz {
+
+    }
+
     static String describeObj(Object x) {
         return switch (x) {
             case String x2 -> "string";
             case Foo x2 -> "Foo";
-            case Bar _, Bap _ -> "Bar/Bap";
+            case Bar _, Bap _, Baz _ -> "Bar/Bap";
             case null, default -> "other: ";
         };
     }

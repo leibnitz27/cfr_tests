@@ -51,6 +51,8 @@
 		<path.source_12>src</path.source_12>
 		<path.source_14>src</path.source_14>
 		<path.source_16>src</path.source_16>
+		<path.source_21>src</path.source_21>
+		<path.source_24>src</path.source_24>
 		<path.source_25>src</path.source_25>
     </properties>
 
@@ -172,6 +174,73 @@
 			</properties>
 		</profile>
 		<profile>
+			<id>java_19</id>
+			<properties>
+				<langver>19</langver>
+				<path.javac>${JAVA_19_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.source_14>src_14</path.source_14>
+				<path.source_16>src_16</path.source_16>
+				<path.target>output/java_19</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+		</profile>
+		<profile>
+			<id>java_20</id>
+			<properties>
+				<langver>20</langver>
+				<path.javac>${JAVA_20_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.source_14>src_14</path.source_14>
+				<path.source_16>src_16</path.source_16>
+				<path.target>output/java_20</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+		</profile>
+		<profile>
+			<id>java_21</id>
+			<properties>
+				<langver>21</langver>
+				<path.javac>${JAVA_21_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.source_14>src_14</path.source_14>
+				<path.source_16>src_16</path.source_16>
+				<path.source_21>src_21</path.source_21>
+				<path.target>output/java_21</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+		</profile>
+		<profile>
+			<id>java_24</id>
+			<properties>
+				<langver>24</langver>
+				<path.javac>${JAVA_24_HOME}/bin/javac</path.javac>
+				<path.source_6>src_6</path.source_6>
+				<path.source_8>src_8</path.source_8>
+				<path.source_9>src_9</path.source_9>
+				<path.source_10>src_10</path.source_10>
+				<path.source_12>src_12</path.source_12>
+				<path.source_14>src_14</path.source_14>
+				<path.source_16>src_16</path.source_16>
+				<path.source_21>src_21</path.source_21>
+				<path.source_24>src_24</path.source_24>
+				<path.target>output/java_24</path.target>
+				<javac.arguments>--enable-preview</javac.arguments>
+			</properties>
+		</profile>
+		<profile>
 			<id>java_25</id>
 			<properties>
 				<langver>25</langver>
@@ -183,6 +252,8 @@
 				<path.source_12>src_12</path.source_12>
 				<path.source_14>src_14</path.source_14>
 				<path.source_16>src_16</path.source_16>
+				<path.source_21>src_21</path.source_21>
+				<path.source_24>src_24</path.source_24>
 				<path.source_25>src_25</path.source_25>
 				<path.target>output/java_25</path.target>
 				<javac.arguments>--enable-preview</javac.arguments>
@@ -240,6 +311,8 @@
 							<source>${path.source_12}</source>
 							<source>${path.source_14}</source>
 							<source>${path.source_16}</source>
+							<source>${path.source_21}</source>
+							<source>${path.source_24}</source>
 							<source>${path.source_25}</source>
 						</sources>
 					</configuration>
