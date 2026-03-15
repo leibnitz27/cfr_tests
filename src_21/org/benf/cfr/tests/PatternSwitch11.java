@@ -1,12 +1,13 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns10h {
+public class PatternSwitch11 {
 
-    static String enumSwitch(EnumTest1 obj) {
+    static String enumSwitch(Object obj) {
         return switch (obj) {
             case EnumTest1.FOO -> "foo";
-            case BAR -> "bar";
+            case EnumTest1.BAR -> "bar";
             case EnumTest1 e -> "other enum: " + e;
+            default -> "not an enum";
         };
     }
 
@@ -14,5 +15,6 @@ public class PrimitivePatterns10h {
         System.out.println(enumSwitch(EnumTest1.FOO));
         System.out.println(enumSwitch(EnumTest1.BAR));
         System.out.println(enumSwitch(EnumTest1.BAP));
+        System.out.println(enumSwitch("hello"));
     }
 }

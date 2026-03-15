@@ -1,6 +1,6 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns3 {
+public class PatternSwitch2 {
 
     // switch with mixed primitive and reference patterns
     // Note that java can't discriminate between boxed and unboxed types, unless there's a guard

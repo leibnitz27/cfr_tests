@@ -1,13 +1,12 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns10i {
+public class PatternSwitch12 {
 
-    static String enumSwitch(Object obj) {
+    static String enumSwitch(EnumTest1 obj) {
         return switch (obj) {
             case EnumTest1.FOO -> "foo";
-            case EnumTest1.BAP -> "bap";
-            case EnumTest1.BAR -> "bar";
-            default -> "bar" + obj;
+            case BAR -> "bar";
+            case EnumTest1 e -> "other enum: " + e;
         };
     }
 

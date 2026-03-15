@@ -1,6 +1,6 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns6 {
+public class PatternSwitch3 {
 
     // Guard calling a method
     static boolean isSpecial(int x) {

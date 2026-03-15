@@ -1,6 +1,6 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns10e {
+public class EnumSwitchTest4 {
 
     enum Direction { NORTH, SOUTH, EAST, WEST }
 

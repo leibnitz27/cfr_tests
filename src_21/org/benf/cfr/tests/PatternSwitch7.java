@@ -1,18 +1,16 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns10b {
+public class PatternSwitch7 {
 
     enum Direction { NORTH, SOUTH, EAST, WEST }
 
     static String directionSwitch(Object obj) {
-        if (obj instanceof Direction d) {
-            return switch (d) {
-                case Direction.NORTH -> "north";
-                case Direction.SOUTH -> "south";
-                case Direction d2 -> "other direction: " + d2;
-            };
-        }
-        return "nope";
+        return switch (obj) {
+            case Direction.NORTH -> "north";
+            case Direction.SOUTH -> "south";
+            case Direction d -> "other direction: " + d;
+            case null, default -> "not a direction";
+        };
     }
 
     public static void main(String[] args) {

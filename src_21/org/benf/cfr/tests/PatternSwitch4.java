@@ -1,6 +1,6 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns9 {
+public class PatternSwitch4 {
 
     enum Color { RED, GREEN, BLUE }
 

@@ -1,15 +1,17 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns9c {
+public class PatternSwitch5 {
 
     enum Color { RED, GREEN, BLUE }
 
     // Enum in a pattern switch on Object
-    static String enumObjectSwitch(Color obj) {
+    static String enumObjectSwitch(Object obj) {
         return switch (obj) {
             case Color.RED -> "red";
             case Color.GREEN -> "green";
-            case Color.BLUE -> "blue";
+            case Color c -> "other color: " + c;
+            case String s -> "string: " + s;
+            case null, default -> "other";
         };
     }
 
@@ -17,5 +19,7 @@ public class PrimitivePatterns9c {
         System.out.println(enumObjectSwitch(Color.RED));
         System.out.println(enumObjectSwitch(Color.GREEN));
         System.out.println(enumObjectSwitch(Color.BLUE));
+        System.out.println(enumObjectSwitch("hello"));
+        System.out.println(enumObjectSwitch(null));
     }
 }

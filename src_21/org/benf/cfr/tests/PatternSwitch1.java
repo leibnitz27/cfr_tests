@@ -1,6 +1,6 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns2 {
+public class PatternSwitch1 {
 
     static class Foo {
 

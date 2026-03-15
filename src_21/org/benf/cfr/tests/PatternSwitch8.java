@@ -1,6 +1,6 @@
 package org.benf.cfr.tests;
 
-public class PrimitivePatterns10c {
+public class PatternSwitch8 {
 
     enum Direction { NORTH, SOUTH, EAST, WEST }
 
@@ -9,7 +9,7 @@ public class PrimitivePatterns10c {
             return switch (d) {
                 case Direction.NORTH -> "north";
                 case Direction.SOUTH -> "south";
-                default -> "other direction: " + d;
+                case Direction d2 -> "other direction: " + d2;
             };
         }
         return "nope";
