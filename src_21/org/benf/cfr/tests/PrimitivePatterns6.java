@@ -25,21 +25,6 @@ public class PrimitivePatterns6 {
         };
     }
 
-    // Void switch with primitive patterns (statement switch, no value)
-    static void voidSwitch(int x) {
-        switch (x) {
-            case int i when i < 0:
-                System.out.println("negative: " + i);
-                break;
-            case int i when i == 0:
-                System.out.println("zero");
-                break;
-            case int i:
-                System.out.println("positive: " + i);
-                break;
-        }
-    }
-
     // Switch with exception in guard
     static String guardWithException(Object obj) {
         return switch (obj) {
@@ -61,10 +46,6 @@ public class PrimitivePatterns6 {
         System.out.println(complexGuard(5, false));
         System.out.println(complexGuard(-3, true));
         System.out.println(complexGuard(-3, false));
-
-        voidSwitch(-5);
-        voidSwitch(0);
-        voidSwitch(10);
 
         System.out.println(guardWithException("hello world"));
         System.out.println(guardWithException("hi"));

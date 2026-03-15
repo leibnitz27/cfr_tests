@@ -25,7 +25,7 @@ mvn compile -P java_25
 
 Or compile all versions: `compile.bat` (Windows) / `compile.sh` (Linux/macOS).
 
-Available profiles: `java_6`, `java_8`, `ojava_8`, `java_10`, `java_12`, `java_13`, `java_14`, `java_16`, `java_18`, `java_25`, `ecj_8`.
+Available profiles: `java_6`, `java_8`, `ojava_8`, `java_10`, `java_12`, `java_13`, `java_14`, `java_16`, `java_18`, `java_19`, `java_20`, `java_21`, `java_24`, `java_25`, `ecj_8`.
 
 ### How multi-version compilation works
 
@@ -66,16 +66,33 @@ python regtest.py --target java_6 --force y
 # Run regression test against baseline
 python regtest.py --target java_6
 ```
+## Enum Switch Compilation Strategies
 
-## Java 25 Tests
+Javac uses different compilation strategies for enum switches depending on Java version and whether the enum is local or external:
 
-Located in `src_25/org/benf/cfr/tests/`:
+### Pre-Java 21
+All enum switches use a synthetic `$SwitchMap` int array in a synthetic inner class, populated at class-init time. This maps runtime ordinals to compile-time case numbers, providing binary compatibility if the enum is recompiled independently.
 
-| File | Tests |
-|------|-------|
-| `FlexibleConstructorBody1.java` | Pre-super/this statements in constructors (JEP 492) |
-| `PrimitivePatterns1.java` | Primitive patterns in switch/instanceof, narrowing, mixed primitive/reference |
-| `PrimitivePatterns2.java` | Multi-label case patterns (`Bar _, Bap _`), `null, default` |
-| `PrimitivePatterns3.java` | Multiple guarded patterns on same type with different `when` conditions |
-| `PrimitivePatterns4.java` | Guards referencing external variables, compound boolean guards |
-| `PrimitivePatterns4b.java` | Same as 4 but as statement switch with `break` instead of expression switch |
+### Java 21+ (JEP 441: Pattern Matching for switch)
+- **Local enum** (defined in the same compilation unit): bare `ordinal()` with hardcoded case values, no `$SwitchMap`. Safe because ordinals can't change independently.
+- **External enum** (e.g. `java.time.DayOfWeek`): still uses `$SwitchMap` for binary compatibility.
+- **Pattern switch on enum via supertype** (e.g. `switch(Object)` with `case Direction.NORTH`): uses `SwitchBootstraps.typeSwitch` with condy `EnumDesc`, or `SwitchBootstraps.enumSwitch` with string constant names. These resolve by name at runtime, making them inherently resilient to ordinal changes.
+
+### Test coverage
+- `EnumSwitchTest1.java` (src_6): inner enum — tests both `$SwitchMap` (pre-21) and bare `ordinal()` (21+) paths
+- `EnumSwitchTest1b.java` (src_8): external enum (`java.time.DayOfWeek`) — confirms `$SwitchMap` is retained even under Java 21+
+- `EnumSwitchTest1c.java` (src_8): same-package enum (`EnumTest1`) — confirms `$SwitchMap` is retained (same-package ≠ same compilation unit)
+
+### Condy EnumDesc (typeSwitch on Object with enum constants)
+When enum constants appear as case labels in a `switch(Object)`, javac encodes them as nested `ConstantBootstraps.invoke` dynamic constants:
+- Inner condy: `ClassDesc.of("org.benf.cfr.tests.EnumTest1")` — creates a class descriptor
+- Outer condy: `EnumDesc.of(classDesc, "FOO")` — creates an enum constant descriptor
+
+The `SwitchBootstraps.typeSwitch` bootstrap resolves these `EnumDesc` values at link time. This applies regardless of whether the enum is inner or external.
+
+Tests: PrimitivePatterns9, 9b (inner enum), 10 (inner enum), 10g (external enum).
+
+### SwitchBootstraps.enumSwitch
+When the switch selector is an enum type (not Object), and the switch uses pattern syntax (qualified constants or type patterns), javac uses `SwitchBootstraps.enumSwitch` with string constant names and the enum Class reference.
+
+Tests: PrimitivePatterns10b (inner enum after instanceof), 10h (external enum direct).
