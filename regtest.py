@@ -50,7 +50,7 @@ print ("Filter : " + filter)
 # ideally, we'd have a full cross product of java version * compiler version, 
 # but that's a lot to run...... 
 #
-subprocess.call('"' + args.jvm + '" -classpath ' + cfr_target + " org.benf.cfr.reader.Main " + clspath + " --showversion false --renameillegalidents " + args.rename + " --outputdir temptestfiles", shell=True)
+subprocess.call('"' + args.jvm + '" -classpath ' + cfr_target + " org.benf.cfr.reader.Main " + clspath + " --showversion false --dumpexceptionstacktrace false --renameillegalidents " + args.rename + " --outputdir temptestfiles", shell=True)
 
 expected_dir = os.path.join("expected", target)
 if not os.path.exists(expected_dir):
