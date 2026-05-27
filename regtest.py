@@ -12,6 +12,8 @@ import shutil
 import subprocess
 import itertools
 import argparse
+import glob
+import re
 
 if (sys.version_info < (3, 0)):
   raise Exception("Python 3 please!")
@@ -36,22 +38,55 @@ os.mkdir("temptestfiles")
 
 
 target = args.target
-filter = "*" if args.filter == "*" else "*" + args.filter + "*"
+filter_re = ".*" if args.filter == "*" else ".*(" + args.filter + ").*"
+
 if target == "hardcoded":
-	clspath = os.path.join("hardcoded", filter + ".class")
+    root = "hardcoded"
 else:
-	clspath = os.path.join("output", target, "org", "benf", "cfr", "tests", filter + ".class")
+    root = os.path.join(
+        "output",
+        target,
+        "org",
+        "benf",
+        "cfr",
+        "tests"
+    )
+
+# Find all class files recursively.
+all_classfiles = glob.glob(
+    os.path.join(root, "**", "*.class"),
+    recursive=True
+)
+
+# Unanchored regex match against basename.
+pattern = re.compile(filter_re)
+
+classfiles = [
+    path for path in all_classfiles
+    if pattern.search(os.path.basename(path))
+]
+
 
 print ("Target : " + target)
-print ("Filter : " + filter)
+print ("Filter : " + filter_re)
 
 #
 # we'll use the version of java that the user has as default.
 # ideally, we'd have a full cross product of java version * compiler version, 
 # but that's a lot to run...... 
 #
-subprocess.call('"' + args.jvm + '" -classpath ' + cfr_target + " org.benf.cfr.reader.Main " + clspath + " --showversion false --dumpexceptionstacktrace false --renameillegalidents " + args.rename + " --outputdir temptestfiles", shell=True)
+cmd = [
+    args.jvm,
+    "-classpath", cfr_target,
+    "org.benf.cfr.reader.Main",
+    *classfiles,
+    "--showversion", "false",
+    "--dumpexceptionstacktrace", "false",
+    "--renameillegalidents", args.rename,
+    "--outputdir", "temptestfiles"
+]
 
+subprocess.call(cmd)
 expected_dir = os.path.join("expected", target)
 if not os.path.exists(expected_dir):
   os.makedirs(expected_dir)
