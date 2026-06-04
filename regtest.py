@@ -52,19 +52,22 @@ else:
         "tests"
     )
 
-# Find all class files recursively.
-all_classfiles = glob.glob(
-    os.path.join(root, "**", "*.class"),
-    recursive=True
-)
-
-# Unanchored regex match against basename.
-pattern = re.compile(filter_re)
-
-classfiles = [
-    path for path in all_classfiles
-    if pattern.search(os.path.basename(path))
-]
+if args.filter == "*":
+    # No filter: hand CFR a single wildcard path, as the original runner did.
+    # Expanding the glob ourselves would put thousands of class files on one
+    # command line, overflowing the OS limit (Windows: WinError 206).
+    classfiles = [os.path.join(root, "*.class")]
+else:
+    # Find all class files recursively, then unanchored regex match basename.
+    all_classfiles = glob.glob(
+        os.path.join(root, "**", "*.class"),
+        recursive=True
+    )
+    pattern = re.compile(filter_re)
+    classfiles = [
+        path for path in all_classfiles
+        if pattern.search(os.path.basename(path))
+    ]
 
 
 print ("Target : " + target)
