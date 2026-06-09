@@ -12,6 +12,7 @@ mvn compile -P java_18
 mvn compile -P java_19
 mvn compile -P java_20
 mvn compile -P java_21
+mvn compile -P java_22
 mvn compile -P java_24
 mvn compile -P java_25
 mvn compile -P ecj_8

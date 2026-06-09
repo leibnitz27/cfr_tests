@@ -16,6 +16,7 @@ call mvn compile -P java_18
 call mvn compile -P java_19
 call mvn compile -P java_20
 call mvn compile -P java_21
+call mvn compile -P java_22
 call mvn compile -P java_24
 call mvn compile -P java_25
 call mvn compile -P ecj_8

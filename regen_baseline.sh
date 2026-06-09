@@ -25,7 +25,7 @@ export CFR_TARGET
 
 ./compile.sh
 
-for v in java_6 java_8 ojava_8 java_10 java_12 java_13 java_14 java_16 java_18 java_19 java_20 java_21 java_24 java_25 ecj_8; do
+for v in java_6 java_8 ojava_8 java_10 java_12 java_13 java_14 java_16 java_18 java_19 java_20 java_21 java_22 java_24 java_25 ecj_8; do
     echo "=== Regenerating baseline: $v ==="
     python regtest.py --target "$v" --force y
 done

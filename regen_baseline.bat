@@ -23,7 +23,7 @@ if not defined CFR_TARGET set CFR_TARGET=%CD%\..\..\target\classes
 @echo on
 call compile.bat
 @echo off
-for %%V in (java_6 java_8 ojava_8 java_10 java_12 java_13 java_14 java_16 java_18 java_19 java_20 java_21 java_24 java_25 ecj_8) do (
+for %%V in (java_6 java_8 ojava_8 java_10 java_12 java_13 java_14 java_16 java_18 java_19 java_20 java_21 java_22 java_24 java_25 ecj_8) do (
     echo === Regenerating baseline: %%V ===
     python regtest.py --target %%V --force y
 )
